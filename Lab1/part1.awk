@@ -8,7 +8,7 @@ BEGIN {
     make = $5
     model = $6
     sum = 0
-    printf ranking, $7, $4, $5, $6, total> "result.csv"
+    print ranking, $7, $4, $5, $6, total > "result.csv"
 }
 
 {

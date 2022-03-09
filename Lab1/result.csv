@@ -1,4 +1,5 @@
-Ranking,0,Car_ID,Year,Make,Model
+Ranking,,,,,Total
+,0,Car_ID,Year,Make,Model
 1,62,48,2015,Acura,TLX
 2,124,124,2015,Jeep,Wrangler
 3,40,222,2015,Lexus,Is250

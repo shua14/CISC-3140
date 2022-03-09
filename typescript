@@ -1,0 +1,5 @@
+Script started on Wed Mar  9 12:04:55 2022
+/Users/Shua/.zshrc:107: command not found: starship
+[1m[7m%[27m[1m[0m                                                                                                                                                                        ]2;Shua@MacBook-Air-2:~/VScode/CISC-3140]1;..ode/CISC-3140[0m[27m[24m[J[01;32m➜  [36mCISC-3140[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hccat sct ripy t  t.log[?1l>[?2004l
+]2;cat script.log]1;catcat: script.log: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                                                                        ]2;Shua@MacBook-Air-2:~/VScode/CISC-3140]1;..ode/CISC-3140[0m[27m[24m[J[01;31m➜  [36mCISC-3140[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004h
