@@ -31,7 +31,7 @@ app.post('/insertJSON', (req, res) => {
     res.send('POST request')
 });
 
-app.post(`insertQueryParameter/:timestamp/:email/:name/:year/:make/:model/:carid/:judgeid/:judgename/:racerturbo/:racersupercharged/:racerperformance/:racerhorsepower/:caroverall/:enginemodifications/:engineperformance/:enginechrome/:enginedetailing/:enginecleanliness/:bodyframeundercarriage/:bodyframesuspension/:bodyframechrome/:bodyframedetailing/:bodyframecleanliness/:modspaint/:modsbody/:modswrap/:modsrims/:modsinterior/:modsother/:modsice/:modsaftermarket/:modswip/:modsoverall`, (req, res) => {
+app.get(`/insertQueryParameter/:timestamp/:email/:name/:year/:make/:model/:carid/:judgeid/:judgename/:racerturbo/:racersupercharged/:racerperformance/:racerhorsepower/:caroverall/:enginemodifications/:engineperformance/:enginechrome/:enginedetailing/:enginecleanliness/:bodyframeundercarriage/:bodyframesuspension/:bodyframechrome/:bodyframedetailing/:bodyframecleanliness/:modspaint/:modsbody/:modswrap/:modsrims/:modsinterior/:modsother/:modsice/:modsaftermarket/:modswip/:modsoverall`, (req, res) => {
         
     const json = {
         "Timestamp": req.params.timestamp,
@@ -70,13 +70,56 @@ app.post(`insertQueryParameter/:timestamp/:email/:name/:year/:make/:model/:carid
         "Mods_Overall": req.params.modsoverall
     }
 
-    insertCar(JSON.parse(json))
-    // res.send('PATCH request')
+    insertCar(json)
+    res.send('Sent query parameters')
 });
 
 app.patch('/updateJSON', (req, res) => {
     updateCar(req, res)
     res.send('PATCH request')
+});
+
+app.get(`/updateQueryParameter/:timestamp/:email/:name/:year/:make/:model/:carid/:judgeid/:judgename/:racerturbo/:racersupercharged/:racerperformance/:racerhorsepower/:caroverall/:enginemodifications/:engineperformance/:enginechrome/:enginedetailing/:enginecleanliness/:bodyframeundercarriage/:bodyframesuspension/:bodyframechrome/:bodyframedetailing/:bodyframecleanliness/:modspaint/:modsbody/:modswrap/:modsrims/:modsinterior/:modsother/:modsice/:modsaftermarket/:modswip/:modsoverall`, (req, res) => {
+        
+    const json = {
+        "Timestamp": req.params.timestamp,
+        "Email": req.params.email,
+        "Name": req.params.name,
+        "Year": req.params.year,
+        "Make": req.params.make,
+        "Model": req.params.model,
+        "Car_ID": req.params.carid,
+        "Judge_ID": req.params.judgeid,
+        "Judge_Name": req.params.judgename,
+        "Racer_Turbo": req.params.racerturbo, 
+        "Racer_Supercharged": req.params.racersupercharged,
+        "Racer_Performance": req.params.racerperformance,
+        "Racer_Horsepower": req.params.racerhorsepower,
+        "Car_Overall": req.params.caroverall,
+        "Engine_Modifications": req.params.enginemodifications,
+        "Engine_Performance": req.params.engineperformance,
+        "Engine_Chrome": req.params.enginechrome,
+        "Engine_Detailing": req.params.enginedetailing,
+        "Engine_Cleanliness": req.params.enginecleanliness,
+        "Body_Frame_Undercarriage": req.params.bodyframeundercarriage,
+        "Body_Frame_Suspension": req.params.bodyframesuspension,
+        "Body_Frame_Chrome": req.params.bodyframechrome,
+        "Body_Frame_Detailing": req.params.bodyframedetailing,
+        "Body_Frame_Cleanliness": req.params.bodyframecleanliness,
+        "Mods_Paint": req.params.modspaint,
+        "Mods_Body": req.params.modsbody,
+        "Mods_Wrap": req.params.modswrap,
+        "Mods_Rims": req.params.modsrims,
+        "Mods_Interior": req.params.modsinterior,
+        "Mods_Other": req.params.modsother,
+        "Mods_ICE": req.params.modsice,
+        "Mods_Aftermarket": req.params.modsaftermarket,
+        "Mods_WIP": req.params.modswip,
+        "Mods_Overall": req.params.modsoverall
+    }
+
+    updateCar(json)
+    res.send('Sent query parameters: Update')
 });
 
 app.listen(port, () => {
@@ -107,8 +150,7 @@ async function insertCar(jsonObj) {
             ${jsonObj.Mods_Other}, ${jsonObj.Mods_ICE}, ${jsonObj.Mods_Aftermarket}, ${jsonObj.Mods_WIP}, ${jsonObj.Mods_Overall})`);
 }
 
-async function updateCar(req, res) {
-    const jsonObj = req.body;
+async function updateCar(jsonObj) {
 
     await db.run(`UPDATE csv SET Timestamp = "${jsonObj.Timestamp}", Email = "${jsonObj.Email}", Name = "${jsonObj.Name}", Year = ${jsonObj.Year}, Make = "${jsonObj.Make}", Model = "${jsonObj.Model}", Judge_ID = "${jsonObj.Judge_ID}", 
     Judge_Name = "${jsonObj.Judge_Name}", Racer_Turbo = ${jsonObj.Racer_Turbo}, Racer_Supercharged = ${jsonObj.Racer_Supercharged}, Racer_Performance = ${jsonObj.Racer_Performance}, Racer_Horsepower = ${jsonObj.Racer_Horsepower}, Car_Overall = ${jsonObj.Car_Overall}, Engine_Modifications = ${jsonObj.Engine_Modifications}, 
