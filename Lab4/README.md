@@ -9,5 +9,5 @@ Can all be installed with npm
 
 ## Description
 
-Creates API endpoints to interact with a SQLite database to receieve or update one or all car entries within the database 
+Creates API endpoints to interact with SQLite database to receieve or update one or all car entries within the database 
 
