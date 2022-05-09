@@ -3,6 +3,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
+
+//use other system resources
 var cors = require('cors')
 
 let db = null; 
