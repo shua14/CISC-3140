@@ -12,10 +12,10 @@ export default function Home(){
     
           <div className="row">
             <div className="viewData">
-              <div><Link to='/ViewData'>View Data</Link></div>
+              <Link to='/ViewAllCars'>View All Cars</Link>
             </div>
-            <div className="insertCar">
-              Insert Car
+            <div className="newCar">
+            <Link to='/NewCar'>New Car</Link>
             </div>
             <div className="updateCar">
               Update Car 
